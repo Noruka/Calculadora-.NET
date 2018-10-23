@@ -13,7 +13,26 @@ namespace Ejercicio_Evaluación_1
     public partial class Form1 : Form
     {
 
-        //Aqui van las variables de afuera
+        //Aqui van las variables generales
+        //Estas variables pueden ser llamadas desde cualquier
+        //Función dentro de public partial class.
+
+        //Las variables numero1 y numero2 son las variables que uso
+        //para guardar los numeros con los que voy a operar
+
+        //La variable contador la utilizo para decirle al programa cuando
+        //Concatenar los numeros. Si en una o en otra. Para diferenciar el
+        //antes y despues del operando.
+
+        //La variable resultado es una pequeña varibale para guardar el
+        //resultado de las operaciones.
+
+        //La variable Store es la que uso para guardar los numeros
+        //en forma string para concatenarlos y hacer las cifras enteras
+        //con los botones de los numeros.
+
+        //las variables que hay en INT son un contador para saber
+        //que operación hay que usar al darle al boton resultado
 
         float numero1, numero2, contador=0, resultado;
         string store="";
@@ -28,13 +47,22 @@ namespace Ejercicio_Evaluación_1
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            //esto limpia la pantalla y las variables numericas guardadas, "reinicia la calculadora"
+            //esto limpia la pantalla y las variables numericas guardadas. 
+            //"reinicia la calculadora" limpiando el cuadro de texto y
+            //la variable store, como también reseteando el contador a 0.
             txtScreen.Text = "";
             store = "";
             contador = 0;
         }
 
         //Estos son los botones numericos
+        //Al darle a uno, comprueba si hay un 0 en
+        //Store. Si hay un 0 lo elimina e introduce la primera cifra.
+        //Esto es para evitar ver que sale en pantalla "05" por ejemplo.
+        //Tiene mas sentido que solo salga el 5.
+        //Lo segundo que hace es coger la variable store y le concatena el
+        //numero correspondiente y lo muestra en pantalla.
+        //Todo esto en String, ya que si no sumaria los numeros como operación.
 
         private void btn1_Click(object sender, EventArgs e)
         {
@@ -186,7 +214,15 @@ namespace Ejercicio_Evaluación_1
             }
         }
 
-        //Este es el boton que cambia el signo de los numeros
+        //Fin de los botones numericos.
+
+
+        //Este es el boton que cambia el signo de los numeros.
+        //Comprueba el contador para saber a que variable cambiarle
+        //el signo. Si el contador es 0 y hay algo en store
+        //, multiplicara por -1 a la varibale numero1. 
+        //Si no, se la cambiara a la variable numero2.
+        //Luego lo mete en store y lo muestra por pantalla.
 
         private void btnChange_Click(object sender, EventArgs e)
         {
@@ -211,6 +247,9 @@ namespace Ejercicio_Evaluación_1
             }
         }
 
+
+
+
         //El boton de resultado
 
 
@@ -218,6 +257,14 @@ namespace Ejercicio_Evaluación_1
 
         //Por ejemplo, si le das al boton de sumar hara que el contador sea 1 y al darle
         //al boton de resultado te hara la suma de las variables.
+        //Convierte lo que hay en la variable store en float y lo mete en la variable
+        //numero2, ya que al darle al boton operador lo guarda en la variable numero1.
+
+        //Hace la operación y lo muestra por pantalla. Luego, lo mete en store
+        //para volverse a usar en la siguiente operación.
+        //Por eso el boton operador guarda directamente la variable numero1.
+
+        //Al final resetea los contadores de los operadores.
 
         private void btnResultado_Click(object sender, EventArgs e)
         {
@@ -292,9 +339,24 @@ namespace Ejercicio_Evaluación_1
             }
         }
 
+
+
         //Los botones de operación
 
+        //Los botones de operación funcionan de la siguiente manera:
+        //el boton comprueba la variable contador para saber con que variable
+        //tiene que trabajar, si con numero1 o con numero2.
+        //También comprueba que haya algo en la variable store
+        //para no dar problemas al convertir lo que haya en float.
+        //Si por algún motivo no hubiera algo simplemente no lo ejecutaria.
+
+        //Después pone la variable contador a 1 para señalar que lo siguiente 
+        //se tiene que meter en la variable numero2.
+        //Muestra por pantalla el caracter +, resetea store y pone el contador
+        //de suma a 1 para indicarle al boton "=" que operar.
+
             //Aqui el boton de sumar
+
 
         private void btnSumar_Click(object sender, EventArgs e)
         {
